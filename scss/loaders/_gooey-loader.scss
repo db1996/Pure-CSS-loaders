@@ -30,13 +30,13 @@
         }
     }
 }
-
+$translatey: ($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2) * -1;
 @keyframes gooey-dot-3-move {
     20% {
         transform: scale(1);
     }
     45% {
-        transform: translateY($loader-gooey-full-circle-width / 2 / 5 * -1) scale(0.45);
+        transform: translateY(-10px) scale(0.45);
     }
     60% {
         transform: translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
@@ -56,13 +56,17 @@
         transform: scale(1);
     }
     45% {
-        transform: rotate(225deg) translateY($loader-gooey-full-circle-width / 2 / 5 * -1) scale(0.45);
+        transform: rotate(225deg) translateY(-10px) scale(0.45);
     }
     60% {
-        transform: rotate(225deg) translateY(($loader-gooey-full-circle-width / 2) * -1) scale(0.45);
+        transform: rotate(225deg)
+            translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
+            scale(0.45);
     }
     80% {
-        transform: rotate(225deg) translateY(($loader-gooey-full-circle-width / 2) * -1) scale(0.45);
+        transform: rotate(225deg)
+            translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
+            scale(0.45);
     }
     100% {
         transform: translateY(0px) scale(1);
@@ -74,13 +78,17 @@
         transform: scale(1);
     }
     45% {
-        transform: rotate(225deg - 90deg) translateY($loader-gooey-full-circle-width / 2 / 5 * -1) scale(0.45);
+        transform: rotate(225deg - 90deg) translateY(-10px) scale(0.45);
     }
     60% {
-        transform: rotate(225deg - 90deg) translateY(($loader-gooey-full-circle-width / 2) * -1) scale(0.45);
+        transform: rotate(135deg)
+            translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
+            scale(0.45);
     }
     80% {
-        transform: rotate(225deg - 90deg) translateY(($loader-gooey-full-circle-width / 2) * -1) scale(0.45);
+        transform: rotate(135deg)
+            translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
+            scale(0.45);
     }
     100% {
         transform: translateY(0px) scale(1);

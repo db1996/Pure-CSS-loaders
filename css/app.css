@@ -74,7 +74,7 @@
   width: 200px;
   height: 200px;
   filter: url("#gooey-filter");
-  animation: gooey-rotate-container 2s ease-in-out infinite; }
+  animation: gooey-rotate-container 4s ease-in-out infinite; }
 .c-loading__gooey-dot {
   width: 50px;
   height: 50px;
@@ -87,19 +87,19 @@
   margin: auto; }
   .c-loading__gooey-dot--dot3 {
     background-color: green;
-    animation: gooey-dot-3-move 2s ease infinite, gooey-z-index 6s ease infinite; }
+    animation: gooey-dot-3-move 4s ease infinite, gooey-z-index 6s ease infinite; }
   .c-loading__gooey-dot--dot2 {
     background-color: blue;
-    animation: gooey-dot-2-move 2s ease infinite, gooey-z-index 6s -4s ease infinite; }
+    animation: gooey-dot-2-move 4s ease infinite, gooey-z-index 6s -4s ease infinite; }
   .c-loading__gooey-dot--dot1 {
     background-color: red;
-    animation: gooey-dot-1-move 2s ease infinite, gooey-z-index 6s -2s ease infinite; }
+    animation: gooey-dot-1-move 4s ease infinite, gooey-z-index 6s -2s ease infinite; }
 
 @keyframes gooey-dot-3-move {
   20% {
     transform: scale(1); }
   45% {
-    transform: translateY(-20px) scale(0.45); }
+    transform: translateY(-10px) scale(0.45); }
   60% {
     transform: translateY(-88.75px) scale(0.45); }
   80% {
@@ -110,22 +110,22 @@
   20% {
     transform: scale(1); }
   45% {
-    transform: rotate(225deg) translateY(-20px) scale(0.45); }
+    transform: rotate(225deg) translateY(-10px) scale(0.45); }
   60% {
-    transform: rotate(225deg) translateY(-100px) scale(0.45); }
+    transform: rotate(225deg) translateY(-88.75px) scale(0.45); }
   80% {
-    transform: rotate(225deg) translateY(-100px) scale(0.45); }
+    transform: rotate(225deg) translateY(-88.75px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-dot-1-move {
   20% {
     transform: scale(1); }
   45% {
-    transform: rotate(135deg) translateY(-20px) scale(0.45); }
+    transform: rotate(135deg) translateY(-10px) scale(0.45); }
   60% {
-    transform: rotate(135deg) translateY(-100px) scale(0.45); }
+    transform: rotate(135deg) translateY(-88.75px) scale(0.45); }
   80% {
-    transform: rotate(135deg) translateY(-100px) scale(0.45); }
+    transform: rotate(135deg) translateY(-88.75px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-rotate-container {
@@ -319,7 +319,7 @@
   width: 200px;
   height: 200px;
   filter: url("#gooey-filter");
-  animation: gooey-rotate-container 2s ease-in-out infinite; }
+  animation: gooey-rotate-container 4s ease-in-out infinite; }
 .c-loading__gooey-dot {
   width: 50px;
   height: 50px;
@@ -332,19 +332,19 @@
   margin: auto; }
   .c-loading__gooey-dot--dot3 {
     background-color: green;
-    animation: gooey-dot-3-move 2s ease infinite, gooey-z-index 6s ease infinite; }
+    animation: gooey-dot-3-move 4s ease infinite, gooey-z-index 6s ease infinite; }
   .c-loading__gooey-dot--dot2 {
     background-color: blue;
-    animation: gooey-dot-2-move 2s ease infinite, gooey-z-index 6s -4s ease infinite; }
+    animation: gooey-dot-2-move 4s ease infinite, gooey-z-index 6s -4s ease infinite; }
   .c-loading__gooey-dot--dot1 {
     background-color: red;
-    animation: gooey-dot-1-move 2s ease infinite, gooey-z-index 6s -2s ease infinite; }
+    animation: gooey-dot-1-move 4s ease infinite, gooey-z-index 6s -2s ease infinite; }
 
 @keyframes gooey-dot-3-move {
   20% {
     transform: scale(1); }
   45% {
-    transform: translateY(-20px) scale(0.45); }
+    transform: translateY(-10px) scale(0.45); }
   60% {
     transform: translateY(-88.75px) scale(0.45); }
   80% {
@@ -355,22 +355,22 @@
   20% {
     transform: scale(1); }
   45% {
-    transform: rotate(225deg) translateY(-20px) scale(0.45); }
+    transform: rotate(225deg) translateY(-10px) scale(0.45); }
   60% {
-    transform: rotate(225deg) translateY(-100px) scale(0.45); }
+    transform: rotate(225deg) translateY(-88.75px) scale(0.45); }
   80% {
-    transform: rotate(225deg) translateY(-100px) scale(0.45); }
+    transform: rotate(225deg) translateY(-88.75px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-dot-1-move {
   20% {
     transform: scale(1); }
   45% {
-    transform: rotate(135deg) translateY(-20px) scale(0.45); }
+    transform: rotate(135deg) translateY(-10px) scale(0.45); }
   60% {
-    transform: rotate(135deg) translateY(-100px) scale(0.45); }
+    transform: rotate(135deg) translateY(-88.75px) scale(0.45); }
   80% {
-    transform: rotate(135deg) translateY(-100px) scale(0.45); }
+    transform: rotate(135deg) translateY(-88.75px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-rotate-container {

@@ -1,4 +1,4 @@
-// DO: Do not forget to change the "amount-of-..." variables in the one you're using corresponding to your HTML
+// TODO: Do not forget to change the "amount-of-..." variables in the one you're using corresponding to your HTML
 // Wave  (lines)
 $loader-wave-amount-of-lines: 5;
 $loader-wave-width: 5px;
@@ -26,7 +26,7 @@ $loader-gooey-dot-height: 50px; /* Would not recommend going below 50, although 
 $loader-gooey-dot1-bcolor: red;
 $loader-gooey-dot2-bcolor: blue;
 $loader-gooey-dot3-bcolor: green;
-$loader-gooey-animation-length: 2s;
+$loader-gooey-animation-length: 4s;
 $loader-gooey-full-circle-width: 200px;
 
 // Google spinner
