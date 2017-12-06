@@ -1,0 +1,46 @@
+// DO: Do not forget to change the "amount-of-..." variables in the one you're using corresponding to your HTML
+// Wave  (lines)
+$loader-wave-amount-of-lines: 5;
+$loader-wave-width: 5px;
+$loader-wave-max-height: 40px;
+$loader-wave-min-height: $loader-wave-max-height / 5;
+$loader-wave-line-gap: 10px;
+$loader-wave-background-color: white;
+$loader-wave-animation-length: 0.7s;
+
+// Wave (squares)
+$loader-square-wave-amount-of-squares: 5;
+$loader-square-wave-width: 20px;
+$loader-square-wave-height: 20px;
+$loader-square-wave-gap: 20px;
+$loader-square-wave-background-color: white;
+$loader-square-wave-animation-length: 0.7s;
+$loader-square-wave-jump-distanceY: -15px;
+$loader-square-wave-jump-distanceX: 0;
+$loader-square-wave-min-opacity: 0.5;
+
+// Gooey loader
+// Don't fiddle around too much with the _gooey-loader.scss file. It usually does not do what you expect it to do.
+$loader-gooey-dot-width: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect, you might like it */
+$loader-gooey-dot-height: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect, you might like it */
+$loader-gooey-dot1-bcolor: red;
+$loader-gooey-dot2-bcolor: blue;
+$loader-gooey-dot3-bcolor: green;
+$loader-gooey-animation-length: 2s;
+
+// Google spinner
+$loader-google-size: 100px;
+$loader-google-border-width: 5px; /* > 10 will break the round shape */
+$loader-google-green: #008744;
+$loader-google-blue: #0057e7;
+$loader-google-red: #d62d20;
+$loader-google-yellow: #ffa700;
+
+// Windows dots
+$loader-dots-amount-dots: 7;
+$loader-dots-size: 10px;
+$loader-dots-rotate-animation: 2.275s;
+$loader-dots-between-full-animation-delay: 2.125s;
+$loader-dots-between-dots-delay: 0.13s;
+$loader-dots-circle-size: 100px;
+$loader-dots-color: white;

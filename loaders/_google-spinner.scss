@@ -1,0 +1,69 @@
+.c-loading {
+    &--google-circular {
+        position: relative;
+        margin: 0 auto;
+        width: $loader-google-size;
+        &:before {
+            content: '';
+            display: block;
+            padding-top: 100%;
+        }
+    }
+    &__circle-svg {
+        animation: rotate 1.28973s linear infinite;
+        height: 100%;
+        transform-origin: center center;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    &__circle-stroke {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+        animation: dash 2s ease-in-out infinite, color 8s ease-in-out infinite;
+        stroke-linecap: round;
+        stroke-width: $loader-google-border-width !important;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 200;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -35px;
+    }
+    100% {
+        stroke-dasharray: 89, 200;
+        stroke-dashoffset: -124px;
+    }
+}
+
+@keyframes color {
+    100%,
+    0% {
+        stroke: $loader-google-red;
+    }
+    40% {
+        stroke: $loader-google-blue;
+    }
+    66% {
+        stroke: $loader-google-green;
+    }
+    80%,
+    90% {
+        stroke: $loader-google-yellow;
+    }
+}

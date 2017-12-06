@@ -1,0 +1,60 @@
+$loader-dots-total-animation: $loader-dots-rotate-animation + $loader-dots-between-full-animation-delay;
+$loader-dots-length-percent: $loader-dots-rotate-animation / $loader-dots-total-animation * 100%;
+$loader-dots-gap-percent: $loader-dots-between-full-animation-delay / $loader-dots-total-animation * 100%;
+.c-loading {
+    &--dots {
+        position: relative;
+        margin-top: $loader-dots-circle-size / 2;
+        margin-right: $loader-dots-circle-size / 2 + $loader-dots-size;
+        margin-bottom: $loader-dots-circle-size / 2 + $loader-dots-size;
+        margin-left: $loader-dots-circle-size / 2;
+    }
+    &__dot {
+        width: $loader-dots-size;
+        height: $loader-dots-size;
+        border-radius: 100%;
+        position: absolute;
+        background-color: $loader-dots-color;
+        transform: rotate(-90deg) translateX(-50px);
+        animation: rot $loader-dots-total-animation infinite linear; /*, opac 1s infinite linear;*/
+        @for $i from 1 through $loader-dots-amount-dots {
+            &:nth-child(#{$i}) {
+                animation-delay: $loader-dots-between-dots-delay * $i;
+            }
+        }
+    }
+}
+$loader-dots-keyframe-percent1: $loader-dots-length-percent / 100% * 5%;
+$loader-dots-keyframe-percent2: $loader-dots-length-percent / 100% * 45%;
+$loader-dots-keyframe-percent3: $loader-dots-length-percent / 100% * 55%;
+$loader-dots-keyframe-percent4: $loader-dots-length-percent / 100% * 95%;
+
+@keyframes rot {
+    0% {
+        transform: rotate(-90deg) translateX($loader-dots-circle-size / 2px * -1px);
+        opacity: 1;
+    }
+    #{$loader-dots-keyframe-percent1} {
+        transform: rotate(0deg) translateX($loader-dots-circle-size / 2px * -1px);
+    }
+    #{$loader-dots-keyframe-percent2} {
+        transform: rotate(180deg) translateX($loader-dots-circle-size / 2px * -1px);
+    }
+    #{$loader-dots-keyframe-percent3} {
+        transform: rotate(360deg) translateX($loader-dots-circle-size / 2px * -1px);
+    }
+    #{$loader-dots-keyframe-percent4} {
+        transform: rotate(540deg) translateX($loader-dots-circle-size / 2px * -1px);
+    }
+    #{$loader-dots-length-percent - 0.001%} {
+        opacity: 1;
+    }
+    #{$loader-dots-length-percent} {
+        transform: rotate(630deg) translateX($loader-dots-circle-size / 2px * -1px);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(630deg) translateX($loader-dots-circle-size / 2px * -1px);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,38 @@
+@keyframes wave {
+    0% {
+        height: $loader-wave-max-height;
+    }
+    50% {
+        height: $loader-wave-min-height;
+    }
+    100% {
+        height: $loader-wave-max-height;
+    }
+}
+.c-loading {
+    &--wave {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $loader-wave-max-height;
+    }
+    &__wave {
+        display: inline-block;
+        width: $loader-wave-width;
+        height: $loader-wave-max-height;
+        background-color: $loader-wave-background-color;
+        border-radius: 8px;
+        transition: 0.2s ease;
+        margin-left: $loader-wave-line-gap;
+        @for $i from 1 through $loader-wave-amount-of-lines {
+            &:nth-child(#{$i}) {
+                animation: wave $loader-wave-animation-length infinite linear;
+                // animation-delay: $loader-wave-animation-length / ($loader-wave-amount-of-lines + 1) * $i;
+                animation-delay: $loader-wave-animation-length / $loader-wave-amount-of-lines * $i;
+            }
+        }
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+}
