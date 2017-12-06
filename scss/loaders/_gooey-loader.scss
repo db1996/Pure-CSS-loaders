@@ -1,7 +1,7 @@
 .c-loading {
     &--gooey {
-        width: 200px;
-        height: 200px;
+        width: 100px;
+        height: 100px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -23,18 +23,15 @@
         margin: auto;
         &--dot3 {
             background-color: $loader-gooey-dot3-bcolor;
-            animation: gooey-dot-3-move $loader-gooey-animation-length ease infinite,
-                gooey-z-index 6s ease infinite;
+            animation: gooey-dot-3-move $loader-gooey-animation-length ease infinite, gooey-z-index 6s ease infinite;
         }
         &--dot2 {
             background-color: $loader-gooey-dot2-bcolor;
-            animation: gooey-dot-2-move $loader-gooey-animation-length ease infinite,
-                gooey-z-index 6s -4s ease infinite;
+            animation: gooey-dot-2-move $loader-gooey-animation-length ease infinite, gooey-z-index 6s -4s ease infinite;
         }
         &--dot1 {
             background-color: $loader-gooey-dot1-bcolor;
-            animation: gooey-dot-1-move $loader-gooey-animation-length ease infinite,
-                gooey-z-index 6s -2s ease infinite;
+            animation: gooey-dot-1-move $loader-gooey-animation-length ease infinite, gooey-z-index 6s -2s ease infinite;
         }
     }
 }

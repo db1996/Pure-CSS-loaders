@@ -1,0 +1,40 @@
+// import the settings
+@import 'settings';
+
+// Import all different loaders
+@import 'loaders/wave';
+@import 'loaders/square-wave';
+@import 'loaders/gooey-loader';
+@import 'loaders/google-spinner';
+@import 'loaders/dots';
+
+// import the settings
+@import 'settings';
+
+// Import all different loaders
+@import 'loaders/wave';
+@import 'loaders/square-wave';
+@import 'loaders/gooey-loader';
+@import 'loaders/google-spinner';
+@import 'loaders/dots';
+
+// Demo specific:
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+.master-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.container33 {
+    position: relative;
+    width: 33%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

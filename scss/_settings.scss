@@ -5,7 +5,7 @@ $loader-wave-width: 5px;
 $loader-wave-max-height: 40px;
 $loader-wave-min-height: $loader-wave-max-height / 5;
 $loader-wave-line-gap: 10px;
-$loader-wave-background-color: white;
+$loader-wave-background-color: black;
 $loader-wave-animation-length: 0.7s;
 
 // Wave (squares)
@@ -13,7 +13,7 @@ $loader-square-wave-amount-of-squares: 5;
 $loader-square-wave-width: 20px;
 $loader-square-wave-height: 20px;
 $loader-square-wave-gap: 20px;
-$loader-square-wave-background-color: white;
+$loader-square-wave-background-color: black;
 $loader-square-wave-animation-length: 0.7s;
 $loader-square-wave-jump-distanceY: -15px;
 $loader-square-wave-jump-distanceX: 0;
@@ -43,4 +43,4 @@ $loader-dots-rotate-animation: 2.275s;
 $loader-dots-between-full-animation-delay: 2.125s;
 $loader-dots-between-dots-delay: 0.13s;
 $loader-dots-circle-size: 100px;
-$loader-dots-color: white;
+$loader-dots-color: black;
