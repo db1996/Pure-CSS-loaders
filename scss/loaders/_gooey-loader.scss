@@ -1,12 +1,7 @@
 .c-loading {
     &--gooey {
-        width: 100px;
-        height: 100px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        margin: auto;
+        width: $loader-gooey-full-circle-width;
+        height: $loader-gooey-full-circle-width;
         filter: url('#gooey-filter');
         animation: gooey-rotate-container $loader-gooey-animation-length ease-in-out infinite;
     }
@@ -41,13 +36,15 @@
         transform: scale(1);
     }
     45% {
-        transform: translateY(-18px) scale(0.45);
+        transform: translateY($loader-gooey-full-circle-width / 2 / 5 * -1) scale(0.45);
     }
     60% {
-        transform: translateY(-90px) scale(0.45);
+        transform: translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
+            scale(0.45);
     }
     80% {
-        transform: translateY(-90px) scale(0.45);
+        transform: translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
+            scale(0.45);
     }
     100% {
         transform: translateY(0px) scale(1);
@@ -59,13 +56,13 @@
         transform: scale(1);
     }
     45% {
-        transform: translate(-16px, 12px) scale(0.45);
+        transform: rotate(225deg) translateY($loader-gooey-full-circle-width / 2 / 5 * -1) scale(0.45);
     }
     60% {
-        transform: translate(-80px, 60px) scale(0.45);
+        transform: rotate(225deg) translateY(($loader-gooey-full-circle-width / 2) * -1) scale(0.45);
     }
     80% {
-        transform: translate(-80px, 60px) scale(0.45);
+        transform: rotate(225deg) translateY(($loader-gooey-full-circle-width / 2) * -1) scale(0.45);
     }
     100% {
         transform: translateY(0px) scale(1);
@@ -77,13 +74,13 @@
         transform: scale(1);
     }
     45% {
-        transform: translate(16px, 12px) scale(0.45);
+        transform: rotate(225deg - 90deg) translateY($loader-gooey-full-circle-width / 2 / 5 * -1) scale(0.45);
     }
     60% {
-        transform: translate(80px, 60px) scale(0.45);
+        transform: rotate(225deg - 90deg) translateY(($loader-gooey-full-circle-width / 2) * -1) scale(0.45);
     }
     80% {
-        transform: translate(80px, 60px) scale(0.45);
+        transform: rotate(225deg - 90deg) translateY(($loader-gooey-full-circle-width / 2) * -1) scale(0.45);
     }
     100% {
         transform: translateY(0px) scale(1);
@@ -92,13 +89,13 @@
 
 @keyframes gooey-rotate-container {
     55% {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: rotate(0deg);
     }
     80% {
-        transform: translate(-50%, -50%) rotate(360deg);
+        transform: rotate(360deg);
     }
     100% {
-        transform: translate(-50%, -50%) rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 

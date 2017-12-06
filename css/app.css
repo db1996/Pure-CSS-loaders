@@ -71,13 +71,8 @@
     margin-left: 20px; }
 
 .c-loading--gooey {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: auto;
+  width: 200px;
+  height: 200px;
   filter: url("#gooey-filter");
   animation: gooey-rotate-container 2s ease-in-out infinite; }
 .c-loading__gooey-dot {
@@ -104,42 +99,42 @@
   20% {
     transform: scale(1); }
   45% {
-    transform: translateY(-18px) scale(0.45); }
+    transform: translateY(-20px) scale(0.45); }
   60% {
-    transform: translateY(-90px) scale(0.45); }
+    transform: translateY(-88.75px) scale(0.45); }
   80% {
-    transform: translateY(-90px) scale(0.45); }
+    transform: translateY(-88.75px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-dot-2-move {
   20% {
     transform: scale(1); }
   45% {
-    transform: translate(-16px, 12px) scale(0.45); }
+    transform: rotate(225deg) translateY(-20px) scale(0.45); }
   60% {
-    transform: translate(-80px, 60px) scale(0.45); }
+    transform: rotate(225deg) translateY(-100px) scale(0.45); }
   80% {
-    transform: translate(-80px, 60px) scale(0.45); }
+    transform: rotate(225deg) translateY(-100px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-dot-1-move {
   20% {
     transform: scale(1); }
   45% {
-    transform: translate(16px, 12px) scale(0.45); }
+    transform: rotate(135deg) translateY(-20px) scale(0.45); }
   60% {
-    transform: translate(80px, 60px) scale(0.45); }
+    transform: rotate(135deg) translateY(-100px) scale(0.45); }
   80% {
-    transform: translate(80px, 60px) scale(0.45); }
+    transform: rotate(135deg) translateY(-100px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-rotate-container {
   55% {
-    transform: translate(-50%, -50%) rotate(0deg); }
+    transform: rotate(0deg); }
   80% {
-    transform: translate(-50%, -50%) rotate(360deg); }
+    transform: rotate(360deg); }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg); } }
+    transform: rotate(360deg); } }
 @keyframes gooey-z-index {
   0%,
     100% {
@@ -321,13 +316,8 @@
     margin-left: 20px; }
 
 .c-loading--gooey {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: auto;
+  width: 200px;
+  height: 200px;
   filter: url("#gooey-filter");
   animation: gooey-rotate-container 2s ease-in-out infinite; }
 .c-loading__gooey-dot {
@@ -354,42 +344,42 @@
   20% {
     transform: scale(1); }
   45% {
-    transform: translateY(-18px) scale(0.45); }
+    transform: translateY(-20px) scale(0.45); }
   60% {
-    transform: translateY(-90px) scale(0.45); }
+    transform: translateY(-88.75px) scale(0.45); }
   80% {
-    transform: translateY(-90px) scale(0.45); }
+    transform: translateY(-88.75px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-dot-2-move {
   20% {
     transform: scale(1); }
   45% {
-    transform: translate(-16px, 12px) scale(0.45); }
+    transform: rotate(225deg) translateY(-20px) scale(0.45); }
   60% {
-    transform: translate(-80px, 60px) scale(0.45); }
+    transform: rotate(225deg) translateY(-100px) scale(0.45); }
   80% {
-    transform: translate(-80px, 60px) scale(0.45); }
+    transform: rotate(225deg) translateY(-100px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-dot-1-move {
   20% {
     transform: scale(1); }
   45% {
-    transform: translate(16px, 12px) scale(0.45); }
+    transform: rotate(135deg) translateY(-20px) scale(0.45); }
   60% {
-    transform: translate(80px, 60px) scale(0.45); }
+    transform: rotate(135deg) translateY(-100px) scale(0.45); }
   80% {
-    transform: translate(80px, 60px) scale(0.45); }
+    transform: rotate(135deg) translateY(-100px) scale(0.45); }
   100% {
     transform: translateY(0px) scale(1); } }
 @keyframes gooey-rotate-container {
   55% {
-    transform: translate(-50%, -50%) rotate(0deg); }
+    transform: rotate(0deg); }
   80% {
-    transform: translate(-50%, -50%) rotate(360deg); }
+    transform: rotate(360deg); }
   100% {
-    transform: translate(-50%, -50%) rotate(360deg); } }
+    transform: rotate(360deg); } }
 @keyframes gooey-z-index {
   0%,
     100% {
