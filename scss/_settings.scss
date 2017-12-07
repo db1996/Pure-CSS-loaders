@@ -7,6 +7,8 @@ $loader-wave-min-height: $loader-wave-max-height / 5;
 $loader-wave-line-gap: 10px;
 $loader-wave-background-color: black;
 $loader-wave-animation-length: 0.7s;
+@include create-wave-elem('loading-waves', $loader-wave-amount-of-lines, $loader-wave-width, $loader-wave-max-height,
+$loader-wave-min-height, $loader-wave-line-gap, $loader-wave-background-color, $loader-wave-animation-length);
 
 // Wave (squares)
 $loader-square-wave-amount-of-squares: 5;
@@ -22,7 +24,7 @@ $loader-square-wave-min-opacity: 0.5;
 // Gooey loader
 // Don't fiddle around too much with the _gooey-loader.scss file. It usually does not do what you expect it to do.
 $loader-gooey-dot-width: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect, you might like it */
-$loader-gooey-dot-height: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect, you might like it */
+$loader-gooey-dot-height: 50px;
 $loader-gooey-dot1-bcolor: red;
 $loader-gooey-dot2-bcolor: blue;
 $loader-gooey-dot3-bcolor: green;
@@ -54,3 +56,4 @@ $loader-dots-color: black;
 @include create-dots-elem ('loading-dots', $loader-dots-amount-dots, $loader-dots-size,
  $loader-dots-circle-size, $loader-dots-rotate-animation, $loader-dots-between-full-animation-delay,
  $loader-dots-between-dots-delay, $loader-dots-color);
+@include create-dots-elem ('name--name', 4, 5px, 40px, 2.5s, 1.2s, 0.12s, red);
