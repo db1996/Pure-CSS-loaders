@@ -38,10 +38,19 @@ $loader-google-red: #d62d20;
 $loader-google-yellow: #ffa700;
 
 // Windows dots
-$loader-dots-amount-dots: 7;
+/*
+    If you only need one you can just create a wrapper div with the class "loading-dots"  and the dots classed "loading-dots__dot"
+    change the settings here to get that one to change.
+
+    if you need more than one with different settings, I created a mixin, see below how it works. The first one is for the standard one
+*/
+$loader-dots-amount-dots: 6;
 $loader-dots-size: 10px;
-$loader-dots-rotate-animation: 2.275s;
-$loader-dots-between-full-animation-delay: 2.125s;
-$loader-dots-between-dots-delay: 0.13s;
-$loader-dots-circle-size: 100px;
+$loader-dots-circle-size: 80px;
+$loader-dots-rotate-animation: 2.5s; /* Time it takes to animate the dots 2 full rounds (speed ups and slow downs are calculated) */
+$loader-dots-between-full-animation-delay: 1.2s; /* Delay between every 2 full rotations */
+$loader-dots-between-dots-delay: 0.12s; /* Delay in when the animation starts between every dot in seconds */
 $loader-dots-color: black;
+@include create-dots-elem ('loading-dots', $loader-dots-amount-dots, $loader-dots-size,
+ $loader-dots-circle-size, $loader-dots-rotate-animation, $loader-dots-between-full-animation-delay,
+ $loader-dots-between-dots-delay, $loader-dots-color);

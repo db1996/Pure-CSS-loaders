@@ -1,60 +1,65 @@
-$loader-dots-total-animation: $loader-dots-rotate-animation + $loader-dots-between-full-animation-delay;
-$loader-dots-length-percent: $loader-dots-rotate-animation / $loader-dots-total-animation * 100%;
-$loader-dots-gap-percent: $loader-dots-between-full-animation-delay / $loader-dots-total-animation * 100%;
-.c-loading {
-    &--dots {
+@mixin create-dots-elem ($classname, $amount, $size, $circle-size, $rot-anim, $betwe-f-anim, $betwe-dd-anim, $col) {
+    $tot-anim: $rot-anim + $betwe-f-anim;
+    $l-percent: $rot-anim / $tot-anim * 100%;
+    $g-percent: $betwe-f-anim / $tot-anim * 100%;
+    .#{$classname} {
         position: relative;
-        margin-top: $loader-dots-circle-size / 2;
-        margin-right: $loader-dots-circle-size / 2 + $loader-dots-size;
-        margin-bottom: $loader-dots-circle-size / 2 + $loader-dots-size;
-        margin-left: $loader-dots-circle-size / 2;
-    }
-    &__dot {
-        width: $loader-dots-size;
-        height: $loader-dots-size;
-        border-radius: 100%;
-        position: absolute;
-        background-color: $loader-dots-color;
-        transform: rotate(-90deg) translateX(-50px);
-        animation: rot $loader-dots-total-animation infinite linear; /*, opac 1s infinite linear;*/
-        @for $i from 1 through $loader-dots-amount-dots {
-            &:nth-child(#{$i}) {
-                animation-delay: $loader-dots-between-dots-delay * $i;
+        margin-top: $circle-size / 2;
+        margin-right: $circle-size / 2 + $size;
+        margin-bottom: $circle-size / 2 + $size;
+        margin-left: $circle-size / 2;
+        &__dot {
+            width: $size;
+            height: $size;
+            border-radius: 100%;
+            position: absolute;
+            background-color: $col;
+            transform: rotate(-90deg) translateX(-50px);
+            animation: #{$classname} $tot-anim infinite linear; /*, opac 1s infinite linear;*/
+            @for $i from 1 through $amount {
+                &:nth-child(#{$i}) {
+                    animation-delay: $betwe-dd-anim * $i * -1;
+                }
             }
         }
     }
-}
-$loader-dots-keyframe-percent1: $loader-dots-length-percent / 100% * 5%;
-$loader-dots-keyframe-percent2: $loader-dots-length-percent / 100% * 45%;
-$loader-dots-keyframe-percent3: $loader-dots-length-percent / 100% * 55%;
-$loader-dots-keyframe-percent4: $loader-dots-length-percent / 100% * 95%;
 
-@keyframes rot {
-    0% {
-        transform: rotate(-90deg) translateX($loader-dots-circle-size / 2px * -1px);
-        opacity: 1;
+    $per1: $l-percent / 100% * 5%;
+    $per2: $l-percent / 100% * 45%;
+    $per3: $l-percent / 100% * 55%;
+    $per4: $l-percent / 100% * 95%;
+    @include create-keyframe($classname) {
+        0% {
+            transform: rotate(-90deg) translateX($circle-size / 2px * -1px);
+            opacity: 1;
+        }
+        #{$per1} {
+            transform: rotate(0deg) translateX($circle-size / 2px * -1px);
+        }
+        #{$per2} {
+            transform: rotate(180deg) translateX($circle-size / 2px * -1px);
+        }
+        #{$per3} {
+            transform: rotate(360deg) translateX($circle-size / 2px * -1px);
+        }
+        #{$per4} {
+            transform: rotate(540deg) translateX($circle-size / 2px * -1px);
+        }
+        #{$l-percent - 0.001%} {
+            opacity: 1;
+        }
+        #{$l-percent} {
+            transform: rotate(630deg) translateX($circle-size / 2px * -1px);
+            opacity: 0;
+        }
+        100% {
+            transform: rotate(630deg) translateX($circle-size / 2px * -1px);
+            opacity: 0;
+        }
     }
-    #{$loader-dots-keyframe-percent1} {
-        transform: rotate(0deg) translateX($loader-dots-circle-size / 2px * -1px);
-    }
-    #{$loader-dots-keyframe-percent2} {
-        transform: rotate(180deg) translateX($loader-dots-circle-size / 2px * -1px);
-    }
-    #{$loader-dots-keyframe-percent3} {
-        transform: rotate(360deg) translateX($loader-dots-circle-size / 2px * -1px);
-    }
-    #{$loader-dots-keyframe-percent4} {
-        transform: rotate(540deg) translateX($loader-dots-circle-size / 2px * -1px);
-    }
-    #{$loader-dots-length-percent - 0.001%} {
-        opacity: 1;
-    }
-    #{$loader-dots-length-percent} {
-        transform: rotate(630deg) translateX($loader-dots-circle-size / 2px * -1px);
-        opacity: 0;
-    }
-    100% {
-        transform: rotate(630deg) translateX($loader-dots-circle-size / 2px * -1px);
-        opacity: 0;
+}
+@mixin create-keyframe($animationName) {
+    @keyframes #{$animationName} {
+        @content;
     }
 }
