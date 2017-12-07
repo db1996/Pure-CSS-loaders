@@ -1,5 +1,12 @@
 // TODO: Do not forget to change the "amount-of-..." variables in the one you're using corresponding to your HTML
+
 // Wave  (lines)
+/*
+    If you only need one you can just create a wrapper div with the class "loading-waves"  and the wave lines classed "loading-waves__wave"
+    change the settings here to get that one to change.
+
+    if you need more than one with different settings, I created a mixin, see below how it works. The first one is for the standard one
+*/
 $loader-wave-amount-of-lines: 5;
 $loader-wave-width: 5px;
 $loader-wave-max-height: 40px;

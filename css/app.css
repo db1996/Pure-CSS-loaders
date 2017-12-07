@@ -1,3 +1,9 @@
+/*
+    If you only need one you can just create a wrapper div with the class "loading-waves"  and the wave lines classed "loading-waves__wave"
+    change the settings here to get that one to change.
+
+    if you need more than one with different settings, I created a mixin, see below how it works. The first one is for the standard one
+*/
 .loading-waves {
   display: flex;
   align-items: center;
