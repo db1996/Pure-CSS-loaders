@@ -1,5 +1,5 @@
-@mixin create-wave-elem($classname, $am, $w, $max-h, $min-h, $gap, $bcolor, $anim-l) {
-    .#{$classname} {
+@mixin create-wave-elem($c, $am, $w, $max-h, $min-h, $gap, $bcolor, $anim-l) {
+    .#{$c} {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -14,7 +14,7 @@
             margin-left: $gap;
             @for $i from 1 through $am {
                 &:nth-child(#{$i}) {
-                    animation: #{$classname} $anim-l infinite linear;
+                    animation: #{$c} $anim-l infinite linear;
                     // animation-delay: $anim-l / ($am + 1) * $i;
                     animation-delay: $anim-l / $am * $i;
                 }
@@ -24,7 +24,7 @@
             }
         }
     }
-    @include create-keyframe($classname) {
+    @include create-keyframe($c) {
         0% {
             height: $max-h;
         }

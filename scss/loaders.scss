@@ -1,3 +1,4 @@
+// I use this to create all the keyframes. feel free to put this anywhere you want or add prefixes. Don't change the name or change the mixin call in all the loaders in the loaders folder
 @mixin create-keyframe($animationName) {
     @keyframes #{$animationName} {
         @content;
@@ -7,20 +8,20 @@
 // Import all different loader mixins
 @import 'loaders/dots';
 @import 'loaders/wave';
-
-// import the settings
-@import 'settings';
-
-// load the loaders without mixins
 @import 'loaders/square-wave';
 @import 'loaders/gooey-loader';
 @import 'loaders/google-spinner';
+@import 'loaders/dots-horizontal';
+
+// import the settings
+@import 'settings';
 
 // Demo specific:
 html,
 body {
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 .master-container {
     width: 100%;

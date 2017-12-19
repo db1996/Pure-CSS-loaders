@@ -1,121 +1,131 @@
-.c-loading {
-    &--gooey {
-        width: $loader-gooey-full-circle-width;
-        height: $loader-gooey-full-circle-width;
+@mixin create-gooey-loader-elem($c, $w, $h, $bcol1, $bcol2, $bcol3, $al, $fcw) {
+    .#{$c} {
+        width: $fcw;
+        height: $fcw;
         filter: url('#gooey-filter');
-        animation: gooey-rotate-container $loader-gooey-animation-length ease-in-out infinite;
-    }
-    &__gooey-dot {
-        width: $loader-gooey-dot-width;
-        height: $loader-gooey-dot-height;
-        border-radius: 50%;
-        // background-color: #000;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: auto;
-        &--dot3 {
-            background-color: $loader-gooey-dot3-bcolor;
-            animation: gooey-dot-3-move $loader-gooey-animation-length ease infinite, gooey-z-index 6s ease infinite;
+        animation: $c + 'container' $al ease-in-out infinite;
+        &__dot {
+            width: $w;
+            height: $h;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            &--dot3 {
+                background-color: $bcol3;
+                animation: $c + 'dot3' $al ease infinite,
+                    gooey-z-index 6s ease infinite;
+            }
+            &--dot2 {
+                background-color: $bcol2;
+                animation: $c + 'dot2' $al ease infinite,
+                    gooey-z-index 6s -4s ease infinite;
+            }
+            &--dot1 {
+                background-color: $bcol1;
+                animation: $c + 'dot1' $al ease infinite,
+                    gooey-z-index 6s -2s ease infinite;
+            }
         }
-        &--dot2 {
-            background-color: $loader-gooey-dot2-bcolor;
-            animation: gooey-dot-2-move $loader-gooey-animation-length ease infinite, gooey-z-index 6s -4s ease infinite;
+    }
+    $translatey: ($fcw / 2) - (($h * 0.45) / 2) * -1;
+    @include create-keyframe($c + 'container') {
+        55% {
+            transform: rotate(0deg);
         }
-        &--dot1 {
-            background-color: $loader-gooey-dot1-bcolor;
-            animation: gooey-dot-1-move $loader-gooey-animation-length ease infinite, gooey-z-index 6s -2s ease infinite;
+        80%,
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    @include create-keyframe($c + 'dot1') {
+        20% {
+            transform: scale(1);
+        }
+        45% {
+            transform: rotate(225deg - 90deg) translateY(-10px) scale(0.45);
+        }
+        60% {
+            transform: rotate(135deg) translateY((($fcw / 2) - (($h * 0.45) / 2)) * -1) scale(0.45);
+        }
+        80% {
+            transform: rotate(135deg) translateY((($fcw / 2) - (($h * 0.45) / 2)) * -1) scale(0.45);
+        }
+        100% {
+            transform: translateY(0px) scale(1);
+        }
+    }
+    @include create-keyframe($c + 'dot2') {
+        20% {
+            transform: scale(1);
+        }
+        45% {
+            transform: rotate(225deg) translateY(-10px) scale(0.45);
+        }
+        60% {
+            transform: rotate(225deg) translateY((($fcw / 2) - (($h * 0.45) / 2)) * -1) scale(0.45);
+        }
+        80% {
+            transform: rotate(225deg) translateY( (($fcw / 2) - (($h * 0.45) / 2)) * -1)scale(0.45);
+        }
+        100% {
+            transform: translateY(0px) scale(1);
+        }
+    }
+    @include create-keyframe($c + 'dot3') {
+        20% {
+            transform: scale(1);
+        }
+        45% {
+            transform: translateY(-10px) scale(0.45);
+        }
+        60% {
+            transform: translateY((($fcw / 2) - (($h * 0.45) / 2)) * -1) scale(0.45);
+        }
+        80% {
+            transform: translateY((($fcw / 2) - (($h * 0.45) / 2)) * -1) scale(0.45);
+        }
+        100% {
+            transform: translateY(0px) scale(1);
         }
     }
 }
-$translatey: ($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2) * -1;
-@keyframes gooey-dot-3-move {
-    20% {
-        transform: scale(1);
-    }
-    45% {
-        transform: translateY(-10px) scale(0.45);
-    }
-    60% {
-        transform: translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
-            scale(0.45);
-    }
-    80% {
-        transform: translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
-            scale(0.45);
-    }
-    100% {
-        transform: translateY(0px) scale(1);
-    }
-}
-
-@keyframes gooey-dot-2-move {
-    20% {
-        transform: scale(1);
-    }
-    45% {
-        transform: rotate(225deg) translateY(-10px) scale(0.45);
-    }
-    60% {
-        transform: rotate(225deg)
-            translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
-            scale(0.45);
-    }
-    80% {
-        transform: rotate(225deg)
-            translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
-            scale(0.45);
-    }
-    100% {
-        transform: translateY(0px) scale(1);
-    }
-}
-
-@keyframes gooey-dot-1-move {
-    20% {
-        transform: scale(1);
-    }
-    45% {
-        transform: rotate(225deg - 90deg) translateY(-10px) scale(0.45);
-    }
-    60% {
-        transform: rotate(135deg)
-            translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
-            scale(0.45);
-    }
-    80% {
-        transform: rotate(135deg)
-            translateY((($loader-gooey-full-circle-width / 2) - (($loader-gooey-dot-height * 0.45) / 2)) * -1)
-            scale(0.45);
-    }
-    100% {
-        transform: translateY(0px) scale(1);
-    }
-}
-
-@keyframes gooey-rotate-container {
-    55% {
-        transform: rotate(0deg);
-    }
-    80% {
-        transform: rotate(360deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes gooey-z-index {
-    0%,
-    100% {
-        z-index: 3;
-    }
-    33.3% {
-        z-index: 2;
-    }
-    66.6% {
-        z-index: 1;
-    }
-}
+// .c-loading {
+// &--gooey {
+// width: $fcw;
+// height: $fcw;
+// filter: url('#gooey-filter');
+// animation: gooey-rotate-container $al ease-in-out infinite;
+// }
+// &__dot {
+// width: $w;
+// height: $h;
+// border-radius: 50%;
+// // background-color: #000;
+// position: absolute;
+// top: 0;
+// bottom: 0;
+// left: 0;
+// right: 0;
+// margin: auto;
+// &--dot3 {
+// background-color: $bcol3;
+// animation: dot-3-move $al ease infinite,
+// gooey-z-index 6s ease infinite;
+// }
+// &--dot2 {
+// background-color: $bcol2;
+// animation: dot-2-move $al ease infinite,
+// gooey-z-index 6s -4s ease infinite;
+// }
+// &--dot1 {
+// background-color: $bcol1;
+// animation: dot-1-move $al ease infinite,
+// gooey-z-index 6s -2s ease infinite;
+// }
+// }
+//
+// }

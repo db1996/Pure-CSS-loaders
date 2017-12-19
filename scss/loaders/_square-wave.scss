@@ -1,37 +1,31 @@
-@keyframes square-wave {
-    0% {
-        transform: translate(0px, 0px);
-        opacity: 1;
-    }
-    50% {
-        transform: translate(
-            $loader-square-wave-jump-distanceX,
-            $loader-square-wave-jump-distanceY
-        );
-        opacity: $loader-square-wave-min-opacity;
-    }
-    100% {
-        transform: translate(0px, 0px);
-        opacity: 1;
-    }
-}
-.c-loading {
-    &--square-wave {
+@mixin create-square-wave-elem($c, $am, $w, $h, $g, $bcol, $al, $jdy, $jdx, $mop) {
+    .#{$c} {
         display: flex;
         align-items: center;
-    }
-    &__square-wave {
-        width: $loader-square-wave-width;
-        height: $loader-square-wave-height;
-        background-color: $loader-square-wave-background-color;
-        animation: square-wave $loader-square-wave-animation-length infinite;
-        @for $i from 1 through 5 {
-            &:nth-child(#{$i}) {
-                animation-delay: ($loader-square-wave-animation-length / 12) * $i;
+        &__square {
+            width: $w;
+            height: $h;
+            background-color: $bcol;
+            animation: $c + '-loadanim' $al infinite;
+            @for $i from 1 through $am {
+                &:nth-child(#{$i}) {
+                    animation-delay: ($al / 12) * $i;
+                }
+            }
+            &:not(:first-child) {
+                margin-left: $g;
             }
         }
-        &:not(:first-child) {
-            margin-left: $loader-square-wave-gap;
+    }
+    @include create-keyframe($c + '-loadanim') {
+        0%,
+        100% {
+            transform: translate(0px, 0px);
+            opacity: 1;
+        }
+        50% {
+            transform: translate($jdx, $jdy);
+            opacity: $mop;
         }
     }
 }

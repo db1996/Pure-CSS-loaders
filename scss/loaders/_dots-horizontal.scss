@@ -1,0 +1,48 @@
+@mixin create-horizontal-dots-elem($c, $am, $s, $col, $w, $al, $ad) {
+    .#{$c} {
+        position: relative;
+        width: $w;
+        height: $s;
+        &__dot {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: $s;
+            width: $w;
+            @for $i from 1 through $am {
+                &:nth-child(#{$i}) {
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        background-color: $col;
+                        border-radius: 50%;
+                        height: $s;
+                        width: $s;
+                        animation: #{$c + '-loadanim'} $al cubic-bezier(0.15, 0.71, 0.74, 0.34) infinite;
+                        animation-delay: $al / 2 / 10 * $i * -1;
+                    }
+                }
+            }
+        }
+    }
+    @include create-keyframe($c + '-loadanim') {
+        0%,
+        10%,
+        90%,
+        100% {
+            opacity: 0;
+        }
+        30%,
+        70% {
+            opacity: 1;
+        }
+        0%,
+        10% {
+            left: 0;
+        }
+        90%,
+        100% {
+            left: $w;
+        }
+    }
+}

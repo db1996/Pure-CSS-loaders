@@ -1,12 +1,20 @@
 // TODO: Do not forget to change the "amount-of-..." variables in the one you're using corresponding to your HTML
 
-// Wave  (lines)
 /*
-    If you only need one you can just create a wrapper div with the class "loading-waves"  and the wave lines classed "loading-waves__wave"
+    first argument is classname for every mixin
+*/
+
+/*
+    If you only need one you can just create a wrapper div with the class "loading-waves"  and the dots classed "loading-waves__wave"
     change the settings here to get that one to change.
 
     if you need more than one with different settings, I created a mixin, see below how it works. The first one is for the standard one
+
+    All the ones that include a mixin work this way
 */
+
+// Wave  (lines)
+
 $loader-wave-amount-of-lines: 5;
 $loader-wave-width: 5px;
 $loader-wave-max-height: 40px;
@@ -14,8 +22,7 @@ $loader-wave-min-height: $loader-wave-max-height / 5;
 $loader-wave-line-gap: 10px;
 $loader-wave-background-color: black;
 $loader-wave-animation-length: 0.7s;
-@include create-wave-elem('loading-waves', $loader-wave-amount-of-lines, $loader-wave-width, $loader-wave-max-height,
-$loader-wave-min-height, $loader-wave-line-gap, $loader-wave-background-color, $loader-wave-animation-length);
+@include create-wave-elem('loading-waves', $loader-wave-amount-of-lines, $loader-wave-width, $loader-wave-max-height, $loader-wave-min-height, $loader-wave-line-gap, $loader-wave-background-color, $loader-wave-animation-length);
 
 // Wave (squares)
 $loader-square-wave-amount-of-squares: 5;
@@ -27,32 +34,29 @@ $loader-square-wave-animation-length: 0.7s;
 $loader-square-wave-jump-distanceY: -15px;
 $loader-square-wave-jump-distanceX: 0;
 $loader-square-wave-min-opacity: 0.5;
+@include create-square-wave-elem('loading-square-waves', $loader-square-wave-amount-of-squares, $loader-square-wave-width, $loader-square-wave-height, $loader-square-wave-gap, $loader-square-wave-background-color, $loader-square-wave-animation-length, $loader-square-wave-jump-distanceY, $loader-square-wave-jump-distanceX, $loader-square-wave-min-opacity);
 
 // Gooey loader
 // Don't fiddle around too much with the _gooey-loader.scss file. It usually does not do what you expect it to do.
-$loader-gooey-dot-width: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect, you might like it */
-$loader-gooey-dot-height: 50px;
+$loader-gooey-dot-width: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect */
+$loader-gooey-dot-height: 50px; /* Would not recommend going below 50, although 40 creates a cool unexpected effect */
 $loader-gooey-dot1-bcolor: red;
 $loader-gooey-dot2-bcolor: blue;
 $loader-gooey-dot3-bcolor: green;
 $loader-gooey-animation-length: 4s;
 $loader-gooey-full-circle-width: 200px;
+@include create-gooey-loader-elem('loading-gooey', $loader-gooey-dot-width, $loader-gooey-dot-height, $loader-gooey-dot1-bcolor, $loader-gooey-dot2-bcolor, $loader-gooey-dot3-bcolor, $loader-gooey-animation-length, $loader-gooey-full-circle-width);
 
 // Google spinner
 $loader-google-size: 100px;
 $loader-google-border-width: 5px; /* > 10 will break the round shape */
+$loader-google-red: #d62d20; // You can make all the colors one color to make it not transition
 $loader-google-green: #008744;
 $loader-google-blue: #0057e7;
-$loader-google-red: #d62d20;
 $loader-google-yellow: #ffa700;
+@include create-google-spinner-elem('loading-google-spinner', $loader-google-size, $loader-google-border-width, $loader-google-red,$loader-google-green, $loader-google-blue, $loader-google-yellow);
 
 // Windows dots
-/*
-    If you only need one you can just create a wrapper div with the class "loading-dots"  and the dots classed "loading-dots__dot"
-    change the settings here to get that one to change.
-
-    if you need more than one with different settings, I created a mixin, see below how it works. The first one is for the standard one
-*/
 $loader-dots-amount-dots: 6;
 $loader-dots-size: 10px;
 $loader-dots-circle-size: 80px;
@@ -60,7 +64,14 @@ $loader-dots-rotate-animation: 2.5s; /* Time it takes to animate the dots 2 full
 $loader-dots-between-full-animation-delay: 1.2s; /* Delay between every 2 full rotations */
 $loader-dots-between-dots-delay: 0.12s; /* Delay in when the animation starts between every dot in seconds */
 $loader-dots-color: black;
-@include create-dots-elem ('loading-dots', $loader-dots-amount-dots, $loader-dots-size,
- $loader-dots-circle-size, $loader-dots-rotate-animation, $loader-dots-between-full-animation-delay,
- $loader-dots-between-dots-delay, $loader-dots-color);
-@include create-dots-elem ('name--name', 4, 5px, 40px, 2.5s, 1.2s, 0.12s, red);
+@include create-dots-elem ('loading-dots', $loader-dots-amount-dots, $loader-dots-size, $loader-dots-circle-size, $loader-dots-rotate-animation, $loader-dots-between-full-animation-delay, $loader-dots-between-dots-delay, $loader-dots-color);
+
+// Horizontal moving dots
+$loader-horizontal-dots-amount-dots: 5;
+$loader-horizontal-dots-size: 10px;
+$loader-horizontal-dots-color: red;
+$loader-horizontal-dots-width: 100%;
+$loader-horizontal-dots-animation-length: 1.5s;
+$loader-horizontal-dots-animation-delay: $loader-horizontal-dots-animation-length / 2 /
+    $loader-horizontal-dots-animation-length;
+@include create-horizontal-dots-elem('loader-horizontal-dots', $loader-horizontal-dots-amount-dots, $loader-horizontal-dots-size, $loader-horizontal-dots-color, $loader-horizontal-dots-width, $loader-horizontal-dots-animation-length,$loader-horizontal-dots-animation-delay);

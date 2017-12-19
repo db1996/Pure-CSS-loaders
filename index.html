@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!-- Almost every aspect of every loader is customizable with the settings part of the css -->
+<!-- Almost every aspect of every loader is customizable with the settings part of the scss -->
 <html>
 <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/loaders.css">
 </head>
 <body>
     <div class="master-container">
@@ -23,9 +23,9 @@
         <div class="container33">
             <!-- Google spinner (width colors) -->
             <h1>Google spinner</h1>
-            <div class="c-loading c-loading--google-circular">
-                <svg class="c-loading__circle-svg" viewBox="25 25 50 50">
-                    <circle class="c-loading__circle-stroke" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            <div class="loading-google-spinner">
+                <svg class="loading-google-spinner__circle-svg" viewBox="25 25 50 50">
+                    <circle class="loading-google-spinner__circle-stroke" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
                 </svg>
             </div>
         </div>
@@ -34,10 +34,10 @@
             Credit to: https://codepen.io/Izumenko/pen/MpWyXK
             i just made it customizable etc. -->
             <h1>Gooey loader</h1>
-            <div class="c-loading c-loading--gooey">
-                <div class="c-loading__gooey-dot c-loading__gooey-dot--dot3"></div>
-                <div class="c-loading__gooey-dot c-loading__gooey-dot--dot2"></div>
-                <div class="c-loading__gooey-dot c-loading__gooey-dot--dot1"></div>
+            <div class="loading-gooey">
+                <div class="loading-gooey__dot loading-gooey__dot--dot3"></div>
+                <div class="loading-gooey__dot loading-gooey__dot--dot2"></div>
+                <div class="loading-gooey__dot loading-gooey__dot--dot1"></div>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
                 <defs>
@@ -62,12 +62,22 @@
         <!--  Square wavv  -->
         <div class="container33">
             <h1>Square wave</h1>
-            <div class="c-loading c-loading--square-wave">
-                <div class="c-loading__square-wave"></div>
-                <div class="c-loading__square-wave"></div>
-                <div class="c-loading__square-wave"></div>
-                <div class="c-loading__square-wave"></div>
-                <div class="c-loading__square-wave"></div>
+            <div class="loading-square-waves">
+                <div class="loading-square-waves__square"></div>
+                <div class="loading-square-waves__square"></div>
+                <div class="loading-square-waves__square"></div>
+                <div class="loading-square-waves__square"></div>
+                <div class="loading-square-waves__square"></div>
+            </div>
+        </div>
+        <div class="container33">
+            <h1>Horizontal Dots</h1>
+            <div class="loader-horizontal-dots">
+                <div class="loader-horizontal-dots__dot"></div>
+                <div class="loader-horizontal-dots__dot"></div>
+                <div class="loader-horizontal-dots__dot"></div>
+                <div class="loader-horizontal-dots__dot"></div>
+                <div class="loader-horizontal-dots__dot"></div>
             </div>
         </div>
     </div>
