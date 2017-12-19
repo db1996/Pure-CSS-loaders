@@ -75,3 +75,22 @@ $loader-horizontal-dots-animation-length: 1.5s;
 $loader-horizontal-dots-animation-delay: $loader-horizontal-dots-animation-length / 2 /
     $loader-horizontal-dots-animation-length;
 @include create-horizontal-dots-elem('loader-horizontal-dots', $loader-horizontal-dots-amount-dots, $loader-horizontal-dots-size, $loader-horizontal-dots-color, $loader-horizontal-dots-width, $loader-horizontal-dots-animation-length,$loader-horizontal-dots-animation-delay);
+
+/*
+    Spinner (2 halves)
+*/
+// Vars for the big circle
+$loader-spinner-size: 90px;
+$loader-spinner-border-size: 2px;
+$loader-spinner-color: black;
+$loader-spinner-animation-length: 1.5s;
+$loader-spinner-animation-direction: reverse; // It will standard be normal, reverse will make it spin oposite direction
+
+// Vars for the small circle. If you leave these all out of the mixin, they will all have standard values based on the big circle
+$loader-spinner-small-size: 60px; // Standard: Big size - 20px
+$loader-spinner-small-border-size: 2px; // Standard: Same as big circle border size
+$loader-spinner-small-color: black; // Standard: Same as big circle color
+$loader-spinner-small-animation-length: 1.5s; // Standard: Same as big circle animation length
+$loader-spinner-small-animation-direction: normal; // Standard: reverse. Because it usually goes the opposite way of the big circle
+
+@include create-spinner-elem('loading-spinner', $loader-spinner-size, $loader-spinner-border-size, $loader-spinner-color, $loader-spinner-animation-length, $loader-spinner-animation-direction, $loader-spinner-small-size, $loader-spinner-small-border-size, $loader-spinner-small-color, $loader-spinner-small-animation-length, $loader-spinner-small-animation-direction);

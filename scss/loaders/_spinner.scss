@@ -1,0 +1,54 @@
+@mixin create-spinner-elem($c, $s, $bs, $col, $al, $ad: normal, $s-s: $s - 20px, $s-bs: $bs, $s-col: $col, $s-al: $al, $s-ad: reverse) {
+    .#{$c} {
+        position: relative;
+        width: $s;
+        height: $s;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $s;
+            height: $s;
+            border-radius: $s;
+            border-bottom: $col $bs solid;
+            border-top: transparent $bs solid;
+            border-left: $col $bs solid;
+            border-right: transparent $bs solid;
+            padding: none;
+            animation: #{$c + '-spinanim'} $al infinite linear;
+            @if $ad == reverse {
+                animation-direction: reverse;
+            }
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: $s-s;
+            height: $s-s;
+            border-radius: 90px;
+            border-bottom: $s-col $s-bs solid;
+            border-top: transparent $s-bs solid;
+            border-left: transparent $s-bs solid;
+            border-right: $s-col $s-bs solid;
+            margin-left: ($s - $s-s) / 2;
+            margin-top: ($s - $s-s) / 2;
+            animation: #{$c + '-spinanim'} $s-al infinite linear;
+            @if $s-ad == normal {
+                animation-direction: normal;
+            } @else {
+                animation-direction: reverse;
+            }
+        }
+    }
+    @include create-keyframe($c + '-spinanim') {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(359deg);
+        }
+    }
+}
