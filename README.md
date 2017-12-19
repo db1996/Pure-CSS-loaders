@@ -8,6 +8,7 @@ A scss project with some pure css loaders and spinners.
 ## Contents
 
 [Update](#Update)
+
 [Mixins](#Mixins)
 * [wave](#wave)
 * [square-wave](#square-wave)
