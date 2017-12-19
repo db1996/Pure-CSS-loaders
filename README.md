@@ -7,9 +7,9 @@ A scss project with some pure css loaders and spinners.
 
 ## Contents
 
-[Update](#Update)
+[Update](#update)
 
-[Mixins](#Mixins)
+[Mixins](#mixins)
 * [wave](#wave)
 * [square-wave](#square-wave)
 * [dots](#dots)
@@ -17,7 +17,7 @@ A scss project with some pure css loaders and spinners.
 * [google-spinner](#google-spinner)
 * [gooey-loader](#gooey-loader)
 
-[Credits](#Credits)
+[Credits](#credits)
 
 ## Update
 
