@@ -45,11 +45,17 @@ If the classname `loading-waves` the HTML should look like this:
     </div>
 
 `$am`: Amount of `<div class="loading-waves__wave"></div>` elements.
+
 `$w`: The width of each individual `<div class="loading-waves__wave"></div>` element.
+
 `$max-h`: The height each `<div class="loading-waves__wave"></div>` will grow to at max.
+
 `$min-h`: The height each `<div class="loading-waves__wave"></div>` will shrink to at min.
+
 `$gap`: The gap between each `<div class="loading-waves__wave"></div>`.
+
 `$bcolor`: The color of the waves.
+
 `anim-l`: time it takes for each wave to shrink and grow (i cycle)
 
 ### square-wave
@@ -69,13 +75,21 @@ If the classname `loading-square-waves` the HTML should look like this:
     </div>
 
 `$am`: Amount of `<div class="loading-square-waves__square"></div>` elements.
+
 `$w`: The width of each individual `<div class="loading-square-waves__square"></div>` element.
+
 `$h`: The height of each individual `<div class="loading-square-waves__square"></div>` element.
+
 `$gap`: The gap between each `<div class="loading-square-waves__square"></div>`.
+
 `$bcol`: The color of the squares.
+
 `al`: The time it takes each square to jump and fall (one cycle)
+
 `jdy`: The distance each square jumps up (or down)
+
 `jdx`: The distance each square jumps right (or left)
+
 `mop`: The minimum opacity of each square, set this to 1 if you don't want any opacity
 
 ### dots
@@ -95,11 +109,17 @@ If the classname `loading-dots` the HTML should look like this:
     </div>
 
 `$am`: Amount of `<div class="loading-dots__dot"></div>` elements.
+
 `$s`: The size of the dots (Width and height is equal and the border-radius is set to 50%).
+
 `$cs`: The circle size. The height and width of space where all the dots go in circles
+
 `$ranim`: Amount of time it takes a dot to animate 2 full circles (the speed up and slow down parts are calculated)
+
 `bfanim`: Delay in seconds for every dot between every 2 rounds (the time a dot is invisible after ending 2 rounds)
+
 `bddanim`: Delay in seconds between every dot (the higher, the more distance there will be between 2 dots)
+
 `$col`: The color of the dots
 
 
@@ -120,10 +140,15 @@ If the classname `loader-horizontal-dots` the HTML should look like this:
     </div>
 
 `$am`: Amount of `<div class="loader-horizontal-dots__dot"></div>` elements
+
 `$s`: The size of the dots (Width and height is equal and the border-radius is set to 50%).
+
 `$col`: The color of the dots
+
 `$w`: The width of the **container** element. This is also how far to the right every dot will go
+
 `$al`: Time it takes to go from left to right for each dots
+
 `$ad`: Delay in seconds between every dot (the higher, the more distance there will be between 2 dots)
 
 ### google-spinner
@@ -141,7 +166,9 @@ If the classname `loading-google-spinner` the HTML should look like this:
     </div>
 
 `$s`: The size of the circle
+
 `$bw`: The width of the border of the circle (the visible colored part)
+
 `$r, $g, $b, $y`: The colors the circle will change in (red, green, blue, yellow are standard, make them all the same to have no transition)
 
 ### gooey-loader
@@ -167,9 +194,13 @@ If the classname `loading-gooey` the HTML should look like this:
     </svg>
 
 `$w`: The width of each dot.
+
 `$h`: The height of each dot.
+
 `$bcol1, $bcol2, $bcol3`: The colors of each dot
+
 `$al`: length in seconds of the full animation
+
 `$fcw`: The width of the circle (and height) that all the dots move in
 
 NOTE: The SVG is not needed, but it looks better with it. (it makes the colors morph)
