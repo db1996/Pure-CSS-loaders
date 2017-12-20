@@ -3,6 +3,7 @@
 A scss project with some pure css loaders and spinners.
 * The tricolor one will work without an SVG but will look worse
 * The google spinner won't work without SVG. Still working on making one without it, i have one working but it just doesn't look right
+
 [Here's the codepen to show them](https://codepen.io/db1996/pen/VrNoBJ). Shown with normal CSS because the file got way too long
 
 ## Contents
