@@ -209,4 +209,5 @@ NOTE: This one is the *most* buggy out of all of them to customize. You can play
 
 ## Credits
 Credit for the horizontal dots loader: https://codepen.io/jenning/pen/rrkBbq. I used his `cubic-bezier` css animation property, that's it
+
 Credit for the gooey loader: https://codepen.io/Izumenko/pen/MpWyXK. I used this and tried to make it more customizable
