@@ -1,4 +1,4 @@
-# Pure-CSS-loaders
+# Pure-CSS-loaders 
 
 A scss project with some pure css loaders and spinners.
 * The tricolor one will work without an SVG but will look worse
