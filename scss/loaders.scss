@@ -13,11 +13,18 @@
 @import 'loaders/google-spinner';
 @import 'loaders/dots-horizontal';
 @import 'loaders/spinner';
-@import 'loaders/line-color';
+@import 'loaders/border';
 
 // import the settings
 @import 'settings';
 
+// For the border one, the parent needs position relative. For this demo it is just a black square but the child elements can be placed anywhere
+.border-loader-container {
+    position: relative;
+    width: 200px;
+    height: 100px;
+    background-color: black;
+}
 // Demo specific:
 html,
 body {
