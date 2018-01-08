@@ -1,0 +1,15 @@
+@mixin create-keyframe($animationName) {
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@import 'extra/image-carousel';
+
+// Demo specific:
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}

@@ -1,0 +1,87 @@
+@function strip-unit($number) {
+    @if type-of($number) == 'number' and not unitless($number) {
+        @return $number / ($number * 0 + 1);
+    }
+
+    @return $number;
+}
+$amount: 3;
+$movein: 0.5s;
+$stayl: 1s;
+$moveout: 0.5s;
+$total: ($movein + $stayl + $moveout) * ($amount - 1) - $moveout;
+$total2: strip-unit($total);
+$percmovein: strip-unit($movein) / $total2 * 100%;
+$percstay: (strip-unit($movein) + strip-unit($stayl)) / $total2 * 100%;
+$percmoveout: (strip-unit($movein) + strip-unit($stayl) + strip-unit($moveout)) / $total2 * 100%;
+.slide {
+    position: relative;
+    margin-top: 100px;
+    border: 2px solid black;
+    margin-left: 100px;
+    width: 100px;
+    height: 100px;
+    // overflow: hidden;
+}
+.slide__img1 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: url('http://pluspng.com/img-png/png-happy-face-black-and-white-pagelines-black-and-white-smiley-face-png-375.png')
+            no-repeat center center,
+        blue;
+    background-size: 50px;
+    width: 100px;
+    height: 100px;
+    animation: moveup-slide1 $total ease infinite;
+    z-index: 1;
+}
+.slide__img2 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: url('http://images.clipartpanda.com/cloud-icon-png-clouds.png') no-repeat center
+            center,
+        green;
+    background-size: 50px;
+    width: 100px;
+    height: 100px;
+    animation: moveup-slide1 $total ease infinite;
+    animation-delay: $movein + $stayl;
+    z-index: 1;
+}
+.slide__img3 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: url('http://simpleicon.com/wp-content/uploads/star.png') no-repeat center center,
+        yellow;
+    background-size: 50px;
+    width: 100px;
+    height: 100px;
+    animation: moveup-slide1 $total ease infinite;
+    animation-delay: ($movein + $stayl) * 2;
+    z-index: 1;
+}
+@keyframes moveup-slide1 {
+    0% {
+        top: 100%;
+        z-index: 10;
+    }
+    #{$percmovein} {
+        z-index: 10;
+        top: 0;
+    }
+    #{$percstay} {
+        z-index: 10;
+        top: 0;
+    }
+    #{$percmoveout } {
+        top: -100%;
+        z-index: 1;
+    }
+    100% {
+        top: -100%;
+        z-index: 1;
+    }
+}
