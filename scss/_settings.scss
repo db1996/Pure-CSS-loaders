@@ -94,3 +94,13 @@ $loader-spinner-small-animation-length: 1.5s; // Standard: Same as big circle an
 $loader-spinner-small-animation-direction: normal; // Standard: reverse. Because it usually goes the opposite way of the big circle
 
 @include create-spinner-elem('loading-spinner', $loader-spinner-size, $loader-spinner-border-size, $loader-spinner-color, $loader-spinner-animation-length, $loader-spinner-animation-direction, $loader-spinner-small-size, $loader-spinner-small-border-size, $loader-spinner-small-color, $loader-spinner-small-animation-length, $loader-spinner-small-animation-direction);
+
+// Border animation
+$loader-border-thickness: 10px; // How thick the border is
+$loader-border-animation-length: 1s; // how long it will take for 1 side to finish it's animation
+$loader-border-color: green;
+// IF the width and height of the parent is equal you can leave values below empty. IF width or height is bigger  you should change this to the width and height
+$loader-border-width: 200px; // OPTIONAL: standard: 100%
+$loader-border-height: 100px; // OPTIONAL: standard: 100%
+
+@include create-border-elem('loader-border', $loader-border-thickness, $loader-border-animation-length, $loader-border-color, $loader-border-width, $loader-border-height);
