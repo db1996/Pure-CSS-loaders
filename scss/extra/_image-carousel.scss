@@ -7,13 +7,22 @@
 }
 $amount: 3;
 $movein: 0.5s;
-$stayl: 1s;
+$stay: 1s;
 $moveout: 0.5s;
-$total: ($movein + $stayl + $moveout) * ($amount - 1) - $moveout;
-$total2: strip-unit($total);
-$percmovein: strip-unit($movein) / $total2 * 100%;
-$percstay: (strip-unit($movein) + strip-unit($stayl)) / $total2 * 100%;
-$percmoveout: (strip-unit($movein) + strip-unit($stayl) + strip-unit($moveout)) / $total2 * 100%;
+
+$total: ($movein + $stay + $moveout) * ($amount - 1);
+$stripped-total: strip-unit($total);
+$percmovein: strip-unit($movein) / $stripped-total * 100%;
+$percstay: (strip-unit($movein) + strip-unit($stay)) / $stripped-total * 100%;
+$percmoveout: (strip-unit($movein) + strip-unit($stay) + strip-unit($moveout)) /
+    $stripped-total * 100%;
+$percmoveoutsingle: strip-unit($moveout) / $stripped-total * 100%;
+@debug "total: #{$total}";
+@debug "stripped-total: #{$stripped-total}";
+@debug "percmovein: #{$percmovein}";
+@debug "percstay: #{$percstay}";
+@debug "percmoveout: #{$percmoveout}";
+
 .slide {
     position: relative;
     margin-top: 100px;
@@ -25,7 +34,7 @@ $percmoveout: (strip-unit($movein) + strip-unit($stayl) + strip-unit($moveout)) 
 }
 .slide__img1 {
     position: absolute;
-    top: 100%;
+    top: 0%;
     left: 0;
     background: url('http://pluspng.com/img-png/png-happy-face-black-and-white-pagelines-black-and-white-smiley-face-png-375.png')
             no-repeat center center,
@@ -40,29 +49,85 @@ $percmoveout: (strip-unit($movein) + strip-unit($stayl) + strip-unit($moveout)) 
     position: absolute;
     top: 100%;
     left: 0;
-    background: url('http://images.clipartpanda.com/cloud-icon-png-clouds.png') no-repeat center
-            center,
+    background: url('http://images.clipartpanda.com/cloud-icon-png-clouds.png')
+            no-repeat center center,
         green;
     background-size: 50px;
     width: 100px;
     height: 100px;
     animation: moveup-slide1 $total ease infinite;
-    animation-delay: $movein + $stayl;
+    animation-delay: $movein + $stay;
     z-index: 1;
 }
 .slide__img3 {
     position: absolute;
     top: 100%;
     left: 0;
-    background: url('http://simpleicon.com/wp-content/uploads/star.png') no-repeat center center,
+    background: url('http://simpleicon.com/wp-content/uploads/star.png')
+            no-repeat center center,
         yellow;
     background-size: 50px;
     width: 100px;
     height: 100px;
     animation: moveup-slide1 $total ease infinite;
-    animation-delay: ($movein + $stayl) * 2;
+    animation-delay: ($movein + $stay) * 2;
     z-index: 1;
 }
+.slide__img4 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: url('http://simpleicon.com/wp-content/uploads/star.png')
+            no-repeat center center,
+        red;
+    background-size: 50px;
+    width: 100px;
+    height: 100px;
+    animation: moveup-slide1 $total ease infinite;
+    animation-delay: ($movein + $stay) * 3;
+    z-index: 1;
+}
+.slide__img5 {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: url('http://simpleicon.com/wp-content/uploads/star.png')
+            no-repeat center center,
+        grey;
+    background-size: 50px;
+    width: 100px;
+    height: 100px;
+    animation: moveup-slide1 $total ease infinite;
+    animation-delay: ($movein + $stay) * 4;
+    z-index: 1;
+}
+@keyframes moveup-slidespecial {
+    0% {
+        top: 0%;
+        z-index: 10;
+    }
+    #{$percstay} {
+        z-index: 10;
+        top: 0;
+    }
+    #{$percmoveout} {
+        z-index: 10;
+        top: -100%;
+    }
+    #{$percmoveout } {
+        top: -100%;
+        z-index: 1;
+    }
+    #{100% - $percmoveoutsingle} {
+        top: 100%;
+        z-index: 1;
+    }
+    100% {
+        top: 0%;
+        z-index: 10;
+    }
+}
+
 @keyframes moveup-slide1 {
     0% {
         top: 100%;
@@ -81,7 +146,7 @@ $percmoveout: (strip-unit($movein) + strip-unit($stayl) + strip-unit($moveout)) 
         z-index: 1;
     }
     100% {
-        top: -100%;
+        top: 100%;
         z-index: 1;
     }
 }
