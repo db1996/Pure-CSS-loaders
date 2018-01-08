@@ -1,0 +1,108 @@
+@mixin create-image-carousel($c, $am, $s, $m, $l) {
+    $delay: $m - $s;
+    $totalseconds: $s * $am + $m * $am;
+    $busyseconds: $s + $m * 2;
+    $busypercent: $busyseconds / $totalseconds * 100%;
+
+    // Slide1
+    $slide1-stay-perc: $s / $totalseconds * 100%;
+    $slide1-moveup-perc: ($s + $m) / $totalseconds * 100%;
+    $slide1-movesingleperc: $m / $totalseconds * 100%;
+
+    // the rest of the slides
+    $slides-movein-perc: $m / $totalseconds * 100%;
+    $slides-stay-perc: ($s + $m) / $totalseconds * 100%;
+    .#{$c} {
+        position: relative;
+        margin-top: 100px;
+        border: 2px solid black;
+        margin-left: 100px;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        &__image:first-child {
+            position: absolute;
+            top: 0%;
+            left: 0;
+            // http://pluspng.com/img-png/png-happy-face-black-and-white-pagelines-black-and-white-smiley-face-png-375.png
+            background: url('http://images.clipartpanda.com/cloud-icon-png-clouds.png')
+                    no-repeat center center,
+                nth($l, 1);
+            background-size: 50px;
+            width: 100px;
+            height: 100px;
+            animation: unquote($c + '-slide1') $totalseconds ease infinite;
+            animation-delay: $delay;
+            z-index: 1;
+        }
+        @for $i from 2 through $am {
+            &__image:nth-child(#{$i}) {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background: url('http://images.clipartpanda.com/cloud-icon-png-clouds.png')
+                        no-repeat center center,
+                    nth($l, $i);
+                background-size: 50px;
+                width: 100px;
+                height: 100px;
+                animation: unquote($c + '-slides') $totalseconds ease infinite;
+                animation-delay: $m + (($s + $m) * ($i - 2));
+                z-index: 1;
+            }
+        }
+    }
+    @include create-keyframe($c + '-slides') {
+        0% {
+            top: 100%;
+            z-index: 1;
+        }
+        1% {
+            z-index: 2;
+        }
+        #{$slides-movein-perc} {
+            top: 0;
+            z-index: 2;
+        }
+        #{$slides-stay-perc} {
+            top: 0;
+            z-index: 2;
+        }
+        #{$busypercent} {
+            top: -100%;
+            z-index: 1;
+        }
+        100% {
+            top: 100%;
+            z-index: 1;
+        }
+    }
+    @include create-keyframe($c + '-slide1') {
+        0% {
+            top: 0;
+            z-index: 2;
+        }
+        #{$slide1-stay-perc} {
+            top: 0;
+            z-index: 2;
+        }
+        #{$slide1-moveup-perc} {
+            top: -100%;
+            z-index: 2;
+        }
+        #{$slide1-moveup-perc + 1} {
+            z-index: 1;
+        }
+        #{100% - $slide1-movesingleperc} {
+            top: 100%;
+            z-index: 1;
+        }
+        #{100% - $slide1-movesingleperc + 1%} {
+            z-index: 2;
+        }
+        100% {
+            top: 0;
+            z-index: 2;
+        }
+    }
+}

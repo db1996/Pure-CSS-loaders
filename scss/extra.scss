@@ -4,8 +4,10 @@
     }
 }
 
-@import 'extra/image-carousel';
-
+// @import 'extra/image-carousel';
+@import 'extra/image-carousel-mixin';
+$list: green, yellow, red, blue;
+@include create-image-carousel('slide', 4, 0.5s, 0.5s, $list);
 // Demo specific:
 html,
 body {
