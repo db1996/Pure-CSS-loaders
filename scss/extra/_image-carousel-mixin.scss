@@ -1,0 +1,112 @@
+@mixin create-image-carousel($c, $w, $h, $am, $s, $m, $col-list, $img-list, $is, $ip: no-repeat center center) {
+    $delay: $m - $s; // delay of the first child
+    $totalseconds: $s * $am + $m * $am; // Total amount of seconds the animation is going to take (all images move in in this time)
+    $busyseconds: $s + $m * 2; // amount of second one single item is busy in the total, 1 times stay and 2 times move (in and out)
+    $busypercent: $busyseconds / $totalseconds * 100%; // calculates how many percent that element is busy
+
+    // Slide1 calculated animation percentages
+    $slide1-stay-perc: $s / $totalseconds * 100%;
+    $slide1-moveup-perc: ($s + $m) / $totalseconds * 100%;
+    $slide1-movesingleperc: $m / $totalseconds * 100%;
+
+    // the rest of the slides calculated animation percentages
+    $slides-movein-perc: $m / $totalseconds * 100%;
+    $slides-stay-perc: ($s + $m) / $totalseconds * 100%;
+
+    // @for $i from 1 through length($img-list) {
+    //     @debug '#{nth($img-list, $i)}';
+    // }
+
+    .#{$c} {
+        position: relative;
+        width: $w;
+        height: $h;
+        overflow: hidden;
+        &__image {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            top: 100%;
+            transform: translateY(0);
+        }
+        &__image:first-child {
+            top: 0;
+            transform: translateY(0);
+            background: url('#{nth($img-list, 1)}') $ip, nth($col-list, 1);
+            background-size: $is;
+            animation: unquote($c + '-slide1') $totalseconds ease infinite;
+            animation-delay: $delay;
+        }
+        @for $i from 2 through $am {
+            &__image:nth-child(#{$i}) {
+                background: url('#{nth($img-list, $i)}') $ip, nth($col-list, $i);
+                animation: unquote($c + '-slides') $totalseconds ease infinite;
+                animation-delay: $m + (($s + $m) * ($i - 2));
+                background-size: $is;
+            }
+        }
+    }
+    @include create-keyframe($c + '-slide1') {
+        0% {
+            transform: translateY(0);
+            z-index: 2;
+        }
+        #{$slide1-stay-perc} {
+            transform: translateY(0);
+            z-index: 2;
+        }
+        #{$slide1-moveup-perc} {
+            transform: translateY(-100%);
+            z-index: 2;
+        }
+        #{$slide1-moveup-perc + 1} {
+            z-index: 1;
+        }
+        #{100% - $slide1-movesingleperc} {
+            transform: translateY(100%);
+            z-index: 1;
+        }
+        #{100% - $slide1-movesingleperc + 1%} {
+            z-index: 2;
+        }
+        100% {
+            transform: translateY(0);
+            z-index: 2;
+        }
+    }
+    @include create-keyframe($c + '-slides') {
+        0% {
+            transform: translateY(0);
+            z-index: 1;
+        }
+        1% {
+            z-index: 2;
+        }
+        #{$slides-movein-perc} {
+            transform: translateY(-100%);
+            z-index: 2;
+        }
+        #{$slides-stay-perc} {
+            transform: translateY(-100%);
+            z-index: 2;
+        }
+        #{$busypercent} {
+            transform: translateY(-200%);
+            z-index: 2;
+        }
+        #{$busypercent + .0001%} {
+            z-index: 1;
+        }
+        100% {
+            transform: translateY(0);
+            z-index: 1;
+        }
+    }
+}
+
+@mixin create-keyframe($animationName) {
+    @keyframes #{$animationName} {
+        @content;
+    }
+}

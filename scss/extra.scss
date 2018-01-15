@@ -1,0 +1,43 @@
+// @import 'extra/image-carousel';
+@import 'extra/image-carousel-mixin';
+
+$classname: 'slide'; // Name of the parent class. All childs should be named "slide__image" if the classname is "slide"
+$parent-width: 100px;
+$parent-height: 100px;
+$amount-of-images: 11; // Amount of childs (images)
+$stay-seconds: 1s; // Amount in seconds of how long an image stays in the middle
+$move-seconds: 0.5s; // Amount in seonds of the animation time it takes to move in and out of the middle
+
+//List of **colors** in order of child, you can put more than the amount of childs in but they will be unused. Less will throw an error
+$colors-list: green, yellow, red, blue, grey, black, white, pink, lime, aqua, brown;
+//List of **images** in order of child, you can put more than the amount of childs in but they will be unused. Less will throw an error
+$image-list: 'http://images.clipartpanda.com/cloud-icon-png-clouds.png',
+    'http://pluspng.com/img-png/png-happy-face-black-and-white-pagelines-black-and-white-smiley-face-png-375.png',
+    'http://images.clipartpanda.com/cloud-icon-png-clouds.png',
+    'http://pluspng.com/img-png/png-happy-face-black-and-white-pagelines-black-and-white-smiley-face-png-375.png',
+    'http://images.clipartpanda.com/cloud-icon-png-clouds.png',
+    'http://pluspng.com/img-png/png-happy-face-black-and-white-pagelines-black-and-white-smiley-face-png-375.png',
+    'http://images.clipartpanda.com/cloud-icon-png-clouds.png',
+    'http://pluspng.com/img-png/png-happy-face-black-and-white-pagelines-black-and-white-smiley-face-png-375.png',
+    'http://images.clipartpanda.com/cloud-icon-png-clouds.png',
+    'http://pluspng.com/img-png/png-happy-face-black-and-white-pagelines-black-and-white-smiley-face-png-375.png',
+    'http://images.clipartpanda.com/cloud-icon-png-clouds.png';
+
+$image-size: 50px; // can be ": 50px;" or ": 50px 50px;" if you want a different height than width;
+$image-properties: no-repeat center center; // This can be anything you want, this makes sure the image shows once and is centered
+// NOTE this propertie can be left empty. STANDARD VALUE: no-repeat center center
+
+@include create-image-carousel($classname,$parent-width, $parent-height, $amount-of-images, $stay-seconds, $move-seconds, $colors-list, $image-list, $image-size, $image-properties);
+
+// Demo specific:
+.slide {
+    border: 2px solid black;
+    margin: 100px auto;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
