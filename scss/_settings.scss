@@ -72,8 +72,8 @@ $loader-horizontal-dots-size: 10px;
 $loader-horizontal-dots-color: red;
 $loader-horizontal-dots-width: 100%;
 $loader-horizontal-dots-animation-length: 1.5s;
-$loader-horizontal-dots-animation-delay: $loader-horizontal-dots-animation-length /
-    2 / $loader-horizontal-dots-animation-length;
+$loader-horizontal-dots-animation-delay: $loader-horizontal-dots-animation-length / 2 /
+    $loader-horizontal-dots-animation-length;
 @include create-horizontal-dots-elem('loader-horizontal-dots', $loader-horizontal-dots-amount-dots, $loader-horizontal-dots-size, $loader-horizontal-dots-color, $loader-horizontal-dots-width, $loader-horizontal-dots-animation-length,$loader-horizontal-dots-animation-delay);
 
 /*
