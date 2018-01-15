@@ -1,0 +1,51 @@
+@mixin create-square-spinner-elem($c, $w, $h, $st, $mt, $cols) {
+    $amount-of-colors: length($cols);
+    $total-seconds: $st * 2 + $mt * 2;
+    $stay-perc: $st / $total-seconds * 100%;
+    $move-perc: $mt / $total-seconds * 100%;
+
+    $color-totals: $total-seconds * $amount-of-colors;
+    $move-colperc: $mt / $color-totals * 100%;
+    $stay-colperc: $st / $color-totals * 100%;
+
+    .#{$c} {
+        width: $w;
+        height: $h;
+        background: nth($cols, 1);
+        animation: unquote($c + '-rotate-div') $total-seconds infinite ease-in-out,
+            unquote($c + '-change-col') $color-totals infinite ease-in-out;
+    }
+    @include create-keyframe($c + '-change-col') {
+        0% {
+            background-color: nth($cols, 1);
+        }
+        @for $i from 2 through $amount-of-colors {
+            #{(100% / $amount-of-colors) * ($i - 1) - $move-colperc} {
+                background-color: nth($cols, $i - 1);
+            }
+            #{(100% / $amount-of-colors) * ($i - 1) + $move-colperc / 2} {
+                background-color: nth($cols, $i);
+            }
+        }
+        #{(100% / $amount-of-colors) * ($amount-of-colors) - $move-colperc} {
+            background-color: nth($cols, length($cols));
+        }
+    }
+    @include create-keyframe($c + '-rotate-div') {
+        0% {
+            transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        }
+        #{$stay-perc} {
+            transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        }
+        #{$stay-perc + $move-perc} {
+            transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        }
+        #{$stay-perc * 2 + $move-perc} {
+            transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        }
+        #{$stay-perc * 2 + $move-perc * 2} {
+            transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        }
+    }
+}
