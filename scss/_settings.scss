@@ -104,3 +104,13 @@ $loader-border-width: 200px; // OPTIONAL: standard: 100%
 $loader-border-height: 100px; // OPTIONAL: standard: 100%
 
 @include create-border-elem('loader-border', $loader-border-thickness, $loader-border-animation-length, $loader-border-color, $loader-border-width, $loader-border-height);
+
+/*
+    Square spinning 3d
+*/
+$loader-square-spinner-width: 100px;
+$loader-square-spinner-height: 100px;
+$loader-square-spinner-stay-time: 1s;
+$loader-square-spinner-move-time: 0.35s;
+$loader-square-spinner-colors: yellow, red, blue, green;
+@include create-square-spinner-elem('square-spinner', $loader-square-spinner-width,$loader-square-spinner-height,$loader-square-spinner-stay-time,$loader-square-spinner-move-time,$loader-square-spinner-colors);
