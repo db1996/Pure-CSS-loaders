@@ -1,0 +1,36 @@
+$size: 40px;
+$s-size: 10px;
+$col: blue;
+$s-col: green;
+$al: 1s;
+
+$radius: $size / 2;
+$s-radius: $s-size / 2;
+
+.loader-circle-inner {
+    position: relative;
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+    background-color: $col;
+    &:before {
+        content: '';
+        position: absolute;
+        width: $s-size;
+        height: $s-size;
+        background-color: $s-col;
+        border-radius: 50%;
+        top: $radius - $s-radius;
+        left: $radius - $s-radius;
+        transform: rotate(270deg) translate($radius / 2 - $s-radius / 2);
+        animation: rotate-s 1s ease-in-out forwards infinite;
+    }
+}
+@keyframes rotate-s {
+    0% {
+        transform: rotate(270deg) translate($radius / 2 - $s-radius / 2);
+    }
+    100% {
+        transform: rotate(-90deg) translate($radius / 2 - $s-radius / 2);
+    }
+}
