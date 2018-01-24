@@ -114,3 +114,14 @@ $loader-square-spinner-stay-time: 1s;
 $loader-square-spinner-move-time: 0.35s;
 $loader-square-spinner-colors: yellow, red, blue, green;
 @include create-square-spinner-elem('square-spinner', $loader-square-spinner-width,$loader-square-spinner-height,$loader-square-spinner-stay-time,$loader-square-spinner-move-time,$loader-square-spinner-colors);
+
+$loader-circle-inner-class: 'loader-circle-inner';
+$loader-circle-inner-size: 50px;
+$loader-circle-inner-small-size: 10px;
+$loader-circle-inner-color: black;
+$loader-circle-inner-small-color: white;
+$loader-circle-inner-animation-length: 1s;
+$loader-circle-inner-start-point: 'left';
+$loader-circle-inner-border: 0;
+$loader-circle-inner-small-border: 0;
+@include create-circle-inner-elem($loader-circle-inner-class, $loader-circle-inner-size, $loader-circle-inner-small-size, $loader-circle-inner-color, $loader-circle-inner-small-color, $loader-circle-inner-animation-length, $loader-circle-inner-start-point, $loader-circle-inner-border, $loader-circle-inner-small-border);

@@ -1,36 +1,43 @@
-$size: 40px;
-$s-size: 10px;
-$col: blue;
-$s-col: green;
-$al: 1s;
-
-$radius: $size / 2;
-$s-radius: $s-size / 2;
-
-.loader-circle-inner {
-    position: relative;
-    width: $size;
-    height: $size;
-    border-radius: 50%;
-    background-color: $col;
-    &:before {
-        content: '';
-        position: absolute;
-        width: $s-size;
-        height: $s-size;
-        background-color: $s-col;
-        border-radius: 50%;
-        top: $radius - $s-radius;
-        left: $radius - $s-radius;
-        transform: rotate(270deg) translate($radius / 2 - $s-radius / 2);
-        animation: rotate-s 1s ease-in-out forwards infinite;
+@function get-initial-orientation($orient) {
+    @if $orient == 'top' {
+        @return 270deg;
+    } @else if $orient == 'left' {
+        @return 180deg;
     }
 }
-@keyframes rotate-s {
-    0% {
-        transform: rotate(270deg) translate($radius / 2 - $s-radius / 2);
+
+@mixin create-circle-inner-elem($c, $s, $s-s, $col, $col-s, $al, $start-point: 'top', $b: 0, $b-s: 0) {
+    $radius: $s / 2;
+    $s-radius: $s-s / 2;
+    $start-deg: type-of($start-point);
+    $end-deg: get-end-orientation($start-deg);
+    .#{$c} {
+        position: relative;
+        width: $s;
+        height: $s;
+        border: $b;
+        border-radius: 50%;
+        background-color: $col;
+        &:before {
+            content: '';
+            position: absolute;
+            width: $s-s;
+            height: $s-s;
+            border: $b-s;
+            background-color: $col-s;
+            border-radius: 50%;
+            top: $radius - $s-radius;
+            left: $radius - $s-radius;
+            transform: rotate($start-deg) translate($radius / 2 - $s-radius / 2);
+            animation: unquote($c + '-rotate') 1s ease-in-out forwards infinite;
+        }
     }
-    100% {
-        transform: rotate(-90deg) translate($radius / 2 - $s-radius / 2);
+    @include create-keyframe($c + '-rotate') {
+        0% {
+            transform: rotate($start-deg) translate($radius / 2 - $s-radius / 2);
+        }
+        100% {
+            transform: rotate(-90deg) translate($radius / 2 - $s-radius / 2);
+        }
     }
 }
